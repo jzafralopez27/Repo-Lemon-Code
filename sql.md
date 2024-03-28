@@ -42,3 +42,23 @@ select Artist.Name from dbo.Artist left join Album on Artist.ArtistId = Album.Ar
 
 15 - Listar los artistas con el número de albums que tienen
 select Artist.Name,COUNT(Album.Title) from Artist left join Album on Artist.ArtistId = Album.ArtistId group by Artist.Name;
+
+// Opcionales //
+
+1 - Listar las pistas ordenadas por el número de veces que aparecen en playlists de forma descendente
+select Track.Name,COUNT(PlaylistTrack.PlaylistId) as Times from Track left join PlaylistTrack on Track.TrackId = PlaylistTrack.TrackId group by Track.Name order by Times desc;
+
+2 - Listar las pistas más compradas (la tabla InvoiceLine tiene los registros de compras)
+select Track.Name, SUM(InvoiceLine.Quantity) as Ventas from Track join InvoiceLine on Track.TrackId = InvoiceLine.TrackId group by Track.Name order by Ventas desc;
+
+3 - Listar los artistas más comprados
+select Artist.Name, SUM(InvoiceLine.Quantity) as Ventas from Artist join Album on Artist.ArtistId = Album.ArtistId join Track on Album.AlbumId = Track.AlbumId join InvoiceLine on Track.TrackId = InvoiceLine.TrackId group by Artist.Name order by Ventas DESC;
+
+4 - Listar las pistas que aún no han sido compradas por nadie
+select Track.Name from Track left join InvoiceLine on Track.TrackId = InvoiceLine.TrackId where InvoiceLine.InvoiceLineId is Null;
+
+5 - Listar los artistas que aún no han vendido ninguna pista
+select Artist.Name from Artist left join Album on Artist.ArtistId = Album.ArtistId left join Track on Album.AlbumId = Track.AlbumId left join InvoiceLine on Track.TrackId = InvoiceLine.TrackId where InvoiceLine.InvoiceLineId is null group by Artist.Name;
+
+** De las consultas opcionales 4 y 5 no estoy muy seguro, sobre todo de la 5... por ejemplo, me aparece Metallica
+cuando está la consulta 3 sale como de los artistas más vendidos... **
