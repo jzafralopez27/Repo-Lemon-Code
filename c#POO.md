@@ -1,7 +1,7 @@
 ## 1 - Read Books
-Crea una función isBookRead que reciba una lista de libros y un título y devuelva si se ha leído o no dicho libro. 
+Crea una funciÃ³n isBookRead que reciba una lista de libros y un tÃ­tulo y devuelva si se ha leÃ­do o no dicho libro. 
 Un libro es un objeto con title como string y isRead como booleano. En caso de no existir el libro devolver false.
-
+```cs
 namespace LemonCodeJoreZafra
 {
      class Libro
@@ -36,34 +36,34 @@ namespace LemonCodeJoreZafra
             new Libro("El nombre del viento",true),
             new Libro("La resistencia",true),
             new Libro("El estrecho camino entre deseos",false),
-            new Libro("Crónicas de Idhun",false)
+            new Libro("CrÃ³nicas de Idhun",false)
         };
 
             Console.WriteLine(IsBookRead(libros, "El nombre del viento"));
             Console.WriteLine(IsBookRead(libros, "La resistencia"));
             Console.WriteLine(IsBookRead(libros, "El estrecho camino entre deseos"));
-            Console.WriteLine(IsBookRead(libros, "Crónicas de Idhun"));
+            Console.WriteLine(IsBookRead(libros, "CrÃ³nicas de Idhun"));
 
         }
     }
 }
-
+```
 <hr>
 
 ## 2- Slot Machine
 
-El objetivo de este ejercicio es crear una máquina tragaperras utilizando clases donde cada vez que juguemos insertemos una moneda. Cada máquina tragaperras (instancia) tendrá un contador de monedas que automáticamente se irá incrementando conforme vayamos jugando.
+El objetivo de este ejercicio es crear una mÃ¡quina tragaperras utilizando clases donde cada vez que juguemos insertemos una moneda. Cada mÃ¡quina tragaperras (instancia) tendrÃ¡ un contador de monedas que automÃ¡ticamente se irÃ¡ incrementando conforme vayamos jugando.
 
-Cuando se llame al método play el número de monedas se debe incrementar de forma automática y debe generar tres booleanos aleatorios que representarán el estado de las 3 ruletas. El usuario habrá ganado en caso de que los tres booleanos sean true, y por tanto deberá mostrarse por consola el mensaje:
+Cuando se llame al mÃ©todo play el nÃºmero de monedas se debe incrementar de forma automÃ¡tica y debe generar tres booleanos aleatorios que representarÃ¡n el estado de las 3 ruletas. El usuario habrÃ¡ ganado en caso de que los tres booleanos sean true, y por tanto deberÃ¡ mostrarse por consola el mensaje:
 
-"Congratulations!!!. You won <número de monedas> coins!!";
-y reiniciar las monedas almacenadas, ya que las hemos conseguido y han salido de la máquina. En caso contrario deberá mostrar otro mensaje:
+"Congratulations!!!. You won <nÃºmero de monedas> coins!!";
+y reiniciar las monedas almacenadas, ya que las hemos conseguido y han salido de la mÃ¡quina. En caso contrario deberÃ¡ mostrar otro mensaje:
 
 "Good luck next time!!".
-Se preguntará al usuario si quiere jugar o dejar.
+Se preguntarÃ¡ al usuario si quiere jugar o dejar.
 
-Si el usuario elige jugar. Se llamará al método play.
-Si usuario elige cualquier otra opción se terminará la ejecución de la aplicación.
+Si el usuario elige jugar. Se llamarÃ¡ al mÃ©todo play.
+Si usuario elige cualquier otra opciÃ³n se terminarÃ¡ la ejecuciÃ³n de la aplicaciÃ³n.
 
 namespace LemonCodeJoreZafra
 {
@@ -81,7 +81,7 @@ namespace LemonCodeJoreZafra
         public void Play()
         {
  
-            Console.WriteLine("¿Hola, qué deseas hacer? Escribe 'jugar' si deseas jugar o cualquier otra cosa si quieres salir.");
+            Console.WriteLine("Â¿Hola, quÃ© deseas hacer? Escribe 'jugar' si deseas jugar o cualquier otra cosa si quieres salir.");
             string respuesta = Console.ReadLine();
 
             while (respuesta == "jugar")
@@ -93,34 +93,34 @@ namespace LemonCodeJoreZafra
                 if (primerNum == 0)
                 {
                     aleatorios[0] = true;
-                    Console.WriteLine("Primer número True!!");
+                    Console.WriteLine("Primer nÃºmero True!!");
                 } else
                 {
                     aleatorios[0] = false;
-                    Console.WriteLine("Primer número False...");
+                    Console.WriteLine("Primer nÃºmero False...");
                 }
 
                 int segundoNum = rand.Next(2);
                 if (segundoNum == 0)
                 {
                     aleatorios[1] = true;
-                    Console.WriteLine("Segundo número True!!");
+                    Console.WriteLine("Segundo nÃºmero True!!");
                 } else
                 {
                     aleatorios[1] = false;
-                    Console.WriteLine("Segundo número False...");
+                    Console.WriteLine("Segundo nÃºmero False...");
                 }
 
                 int tercerNum = rand.Next(2);
                 if (tercerNum == 0)
                 {
                     aleatorios[2] = true;
-                    Console.WriteLine("Tercer número True!!");
+                    Console.WriteLine("Tercer nÃºmero True!!");
                 }
                 else
                 {
                     aleatorios[2] = false;
-                    Console.WriteLine("Tercer número False...");
+                    Console.WriteLine("Tercer nÃºmero False...");
                 }
 
                 if (aleatorios[0] == true && aleatorios[1] == true && aleatorios[2] == true)
@@ -128,9 +128,9 @@ namespace LemonCodeJoreZafra
                     Console.WriteLine("Enhorabuena!!! Premio!!!! Has ganado " +contadorMoneda+ " monedas!");
                     contadorMoneda = 0;
 
-                } else { Console.WriteLine("Sigue intentándolo, no todos han dado true!"); }
+                } else { Console.WriteLine("Sigue intentÃ¡ndolo, no todos han dado true!"); }
 
-                Console.WriteLine("\"¿Hola, qué deseas hacer? Escribe 'jugar' si deseas jugar o cualquier otra cosa si quieres salir.\"");
+                Console.WriteLine("\"Â¿Hola, quÃ© deseas hacer? Escribe 'jugar' si deseas jugar o cualquier otra cosa si quieres salir.\"");
                 respuesta = Console.ReadLine();
             }
         }
